@@ -1,0 +1,1 @@
+This Tic Tac Toe game, part of the [Odin Project](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript?ref=lnav), will be an exercise in factory functions and modules. Composition and inheritance aren't feasible since there will only be two, distinct, object types, Board and Player. I'll also be trying to implement dynamism in the UX.
