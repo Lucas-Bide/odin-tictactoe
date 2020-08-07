@@ -103,9 +103,8 @@ body {
   align-items: center;
 }
 
-.empty .spotPlaceholder {
+.spotPlaceholder {
   opacity: .5;
-  vertical-align: middle;
 }
 
 .spotPlaceholder-top {
@@ -386,6 +385,15 @@ body {
   }
   100% {
     margin-top: -109px;
+  }
+}
+
+@keyframes slide-up-show-replay {
+  0% {
+    margin-top: -109px;
+  }
+  100% {
+    margin-top: 0;
   }
 }
 
