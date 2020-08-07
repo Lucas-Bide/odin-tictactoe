@@ -1,0 +1,9 @@
+//background
+<span>Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Steve Johnson</a> on <a href="https://unsplash.com/s/photos/abstract?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+
+// Board spot
+<span>Photo by <a href="https://unsplash.com/@mockaroon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Mockaroon</a> on <a href="https://unsplash.com/s/photos/grey-wood?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+
+// Board border
+<span>Photo by <a href="https://unsplash.com/@heftiba?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Toa Heftiba</a> on <a href="https://unsplash.com/s/photos/blue?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+
