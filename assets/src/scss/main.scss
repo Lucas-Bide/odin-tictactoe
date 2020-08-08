@@ -4,6 +4,7 @@
 // Font Awesome 5.14.0
 @import "../../fontawesome/scss/fontawesome.scss";
 @import "../../fontawesome/scss/solid.scss";
+@import "../../fontawesome/scss/brands.scss";
 
 // font-family: 'Orbitron', sans-serif;
 
@@ -25,6 +26,16 @@ body {
 
 *, *:before, *:after {
   text-align: center;
+}
+
+a {
+  color: $text;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $text;
+  text-decoration: none;
 }
 
 .btn {
@@ -68,6 +79,38 @@ body {
 
 .container-full {
   width: 100%;
+}
+
+// --------- Header --------- 
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  color: $redwhite;
+  text-shadow: 5px rgb(25, 26, 48);
+  padding: 20px 0;
+}
+
+.github {
+  color: $text-bg;
+  background-color: $redwhite;
+  border-radius: 50%;
+  font-size: 30px;
+  // margin-top: -20px;
+  // margin-bottom: 10px;
+  // display: inline-block;
+}
+
+.github:hover {
+  color: $text-bg;
 }
 
 
@@ -410,16 +453,6 @@ body {
 
 // --------- Footer ---------  
 
-// --------- Typography --------- 
-
-.title {
-  font-size: 50px;
-  font-weight: bold;
-  color: $redwhite;
-  text-shadow: 5px rgb(25, 26, 48);
-  padding: 20px 0;
-}
-
 // --------- Responsiveness --------- 
 
 @media(max-width: 879.99px) {
@@ -475,5 +508,19 @@ body {
   .options {
     margin-bottom: 50px;
   }
+
+  .result {
+    font-size: 20px;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 20px;
+  }
+  .github {
+    font-size: 31px;
+  }
+
 }
 

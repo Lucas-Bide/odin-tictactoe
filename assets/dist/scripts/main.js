@@ -307,14 +307,15 @@ let Application = (() => {
   function switchOpponent (current, next, resize) {
     // Hide current option
     current.style.animation = '.5s hide-option ease';
-    let p2Input = document.querySelector('#p2');
+    
     if (resize == 0) {
       current.style.animation = '.5s hide-option ease, .5s resize-shrink ease-in-out';
+      let p2Input = document.querySelector('#p2');
       p2Input.style.animation = '.5s shrink-input ease';
+      setTimeout(() => { p2Input.style.animation = 'none'; }, 500);
     }
     else {
       current.style.animation = '.5s hide-option ease, .5s resize-expand ease-in-out';
-      p2Input.style.animation = 'none';
     }
     setTimeout(() => {
       current.style.display = 'none'; 
@@ -399,6 +400,12 @@ let Application = (() => {
       // Hide main and secure form
       lMain.style.display = 'none'; 
     }, 1000);
+
+    // Hide gameover if visible 
+    if (gameOver.style.display == 'block') {
+      gameOver.style.animation = '.5s slide-up-hide-replay ease-out';
+      setTimeout(() => { gameOver.style.display = 'none'; }, 500);
+    }
 
   });
 
