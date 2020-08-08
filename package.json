@@ -1,0 +1,28 @@
+{
+  "name": "ttt",
+  "version": "1.0.0",
+  "description": "This Tic Tac Toe game, part of the [Odin Project](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript?ref=lnav), will be an exercise in factory functions and modules. Composition and inheritance aren't feasible since there will only be two, distinct, object types, Board and Player. I'll also be trying to implement dynamism in the UX.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucas-Bide/odin-tictactoe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucas-Bide/odin-tictactoe/issues"
+  },
+  "homepage": "https://github.com/Lucas-Bide/odin-tictactoe#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^7.0.1"
+  }
+}

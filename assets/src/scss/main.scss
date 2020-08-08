@@ -1,0 +1,479 @@
+
+@import "_reset.scss";
+
+// Font Awesome 5.14.0
+@import "../../fontawesome/scss/fontawesome.scss";
+@import "../../fontawesome/scss/solid.scss";
+
+// font-family: 'Orbitron', sans-serif;
+
+// --------- Variables --------- 
+
+  $text: rgb(182, 98, 98);
+  $text-bg: rgb(25, 26, 48);
+  $border-blu: rgb(9, 9, 196);
+  $redwhite: rgb(243, 225, 225);
+
+// --------- Global --------- 
+
+body {
+  height: max-content;
+  font-family: 'Orbitron', sans-serif;
+  background: url("../images/bg.jpg");
+  background-size: cover;
+}
+
+*, *:before, *:after {
+  text-align: center;
+}
+
+.btn {
+  background-color: $redwhite;
+  color: $text;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+
+  padding: 5px 15px;
+  border: 5px solid $text;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  text-shadow: 5px black;
+  background: darken($color: $redwhite, $amount: 10%);
+}
+
+.btn:active {
+  background: darken($color: $redwhite, $amount: 30%);
+}
+
+// --------- Misc / Intercategory ---------
+  .leaderboard-form, .leaderboard-main, .status-message, .game-over, footer {
+    color: $text;
+    background: $text-bg;
+    letter-spacing: 2px;
+  }
+
+// --------- Containers --------- 
+
+.container, .container-full {
+  box-sizing: border-box;
+  // padding: 0 10px;
+}
+
+.container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.container-full {
+  width: 100%;
+}
+
+
+// --------- Board / Grid --------- 
+
+.board {
+  background-clip: content-box;
+  height: 450px;
+  border: 10px solid $text-bg;
+  border-image: url("../images/board-border.jpg");
+  border-image-source: url("../images/board-border.jpg");
+  border-image-width: 10px;
+  border-image-slice: 1;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+
+// --------- Board Spots --------- 
+
+.spot {
+  border: 10px solid $text-bg;
+  border-image-source: url("../images/board-border.jpg");
+  border-image-width: 10px;
+  border-image-slice: 1;
+  background: url("../images/board-spot.jpg");
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spotPlaceholder {
+  opacity: .5;
+}
+
+.spotPlaceholder-top {
+  width: 0;
+  height: 0;
+  border-top: 20px solid $text-bg;
+  border-left: 20px solid  $text-bg;
+  border-right: 20px solid  $text-bg;
+  
+  border-radius: 50%;
+}
+
+.spotPlaceholder-bottom {
+  width: 0;
+  height: 0;
+  border-top: 20px solid $text-bg;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.spotPlaceholder-top, .spotPlaceholder-bottom {
+  animation: .2s ease ph-show;
+ }
+
+@keyframes ph-show {
+  0% {
+    border-width: 0;
+  }
+
+  100% {
+    border-width: 20px;
+  }
+}
+
+// --------- Leader Board --------- 
+
+.leaderboard {
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.leaderboard-form, .leaderboard-main {
+  display: none;
+  height: 200px;
+}
+
+// Start Button
+
+.start {
+  margin-top: 81px;
+}
+
+@keyframes disappear {
+  100% {
+    height: 0;
+    padding: 0;
+    border: none;
+    font-size: 0;
+  }
+}
+
+// Leaderboard Form
+
+.leaderboard-form {
+  margin-top: 200px;
+}
+
+.leaderboard-form form {
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.begin {
+  margin-left: 30px;
+}
+
+.person-option, .computer-option {
+  position: relative;
+}
+
+.computer-option {
+  display: none;
+}
+
+.icon {
+  position: absolute;
+}
+
+.c-icon { 
+  right: -35px;
+  top: 8px;
+}
+
+.c-icon:hover {
+  animation: .5s infinite shake1 ease;
+}
+
+.p-icon {
+  right: -30px;
+}
+
+.p-icon:hover {
+  animation: .5s infinite shake2 ease;
+}
+
+@keyframes shrink-input {
+  0% {
+    width: 220px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+
+@keyframes hide-option {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes show-option {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes resize-expand {
+  0% {
+    width: 241.117px;
+  }
+  100% {
+    width: 349.65px;
+  }
+}
+
+@keyframes resize-shrink {
+  0% {
+    width: 349.65px;
+  }
+  100% {
+    width: 241.117px;
+  }
+}
+
+
+@keyframes shake1 {
+  0% {
+    top: 8px;
+  }
+  40% {
+    top: 6px;
+  }
+  80% {
+    top: 10px;
+  }
+  100% {
+    top: 8px;
+  }
+}
+
+@keyframes shake2 {
+  0% {
+    top: 0;
+  }
+  40% {
+    top: -2px;
+  }
+  80% {
+    top: 2px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes slide-up-show {
+  100% {
+    margin-top: 0;
+  }
+}
+
+@keyframes slide-up-hide {
+  100% {
+    margin-top: -200px;
+  }
+}
+
+@keyframes slide-down-show {
+  0% {
+    margin-top: -200px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+
+// Leaderboard Main
+
+.leaderboard-main {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.players {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px
+}
+
+.player1, .player2 {
+  width: 50%;
+  word-wrap: break-word;
+}
+
+.name {
+  font-size: 1.5rem;
+}
+
+.name, .score-only {
+  margin-bottom: 5px;
+}
+
+// --------- status --------- 
+
+.status {
+  display: flex;
+}
+
+.status-message {
+  font-size: 1.2rem;
+  padding-top: 5px;
+  padding-bottom: 0;
+  flex: 1;
+}
+
+.status::before, .status::after {
+  display: inline-block;
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 30px solid $text-bg;
+}
+
+.status::before {
+  border-left: 40px solid transparent;
+}
+
+.status::after {
+  border-right: 40px solid transparent;
+}
+
+// --------- Options --------- 
+
+.options {
+  margin: 20px auto 30px auto;
+  height: 109px;
+  overflow: hidden;
+}
+
+.game-over {
+  padding: 20px 15px;
+  display: none;
+}
+
+.result {
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+@keyframes slide-up-hide-replay {
+  0% {
+    margin-top: 0;
+  }
+  100% {
+    margin-top: -109px;
+  }
+}
+
+@keyframes slide-up-show-replay {
+  0% {
+    margin-top: -109px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+
+
+// --------- Footer ---------  
+
+// --------- Typography --------- 
+
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  color: $redwhite;
+  text-shadow: 5px rgb(25, 26, 48);
+  padding: 20px 0;
+}
+
+// --------- Responsiveness --------- 
+
+@media(max-width: 879.99px) {
+  .leaderboard-form form {
+    flex-direction: column;
+    margin-left: -98px;
+  }
+
+  .begin {
+    width: 246px;
+  }
+
+  .begin, .computer-option {
+    margin-left: 95px;
+  }
+
+  .container {
+    width: 400px;
+  }
+
+  .board {
+    height: 400px;    
+  }
+
+  .board, .spot {
+    border-width: 7.5px;
+    border-image-width: 7.5px;
+  }
+}
+
+@media(max-width: 599.99px) {
+  .container {
+    width: 300px;
+  }
+
+  .board {
+    height: 300px;    
+  }
+
+  .board, .spot {
+    border-width: 5px;
+    border-image-width: 5px;
+  }
+
+  .players {
+    flex-direction: column;
+  }
+
+  .restart {
+    order: 1;
+  }
+
+  .options {
+    margin-bottom: 50px;
+  }
+}
+
