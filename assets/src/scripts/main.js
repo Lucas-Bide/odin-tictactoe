@@ -1,16 +1,17 @@
-let Application = (() => {
+// let Application = (() => {
   // Tic Tac Toe Game
   let player = (name) => { 
     return { name, wins: 0 }; 
   }
 
-  let gameFactory = () => {
-    let player1, player2;
+  let gameFactory = (p1, p2) => {
+    let player1 = p1;
+    let player2 = p2; 
     let winner = 0; // -1:p1, 0:tie, 1:p2
     let gameOver = false;
     let spots = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
-    let turn; // true:p1, false:p2
-    let isComp; // versing computer
+    let turn = Math.floor(Math.random() * 2) == 0; // true:p1, false:p2
+    let isComp = false; // versing computer
     
     function checkH() {
       let hLines = getHLines();
@@ -42,6 +43,10 @@ let Application = (() => {
         winner = 0;
       }
       return result;
+    }
+
+    function checkGameOver() {
+      return gameOver; 
     }
 
     function getHLines() {
@@ -76,6 +81,7 @@ let Application = (() => {
       }
     }
 
+
     function setTurn() {
       turn = Math.floor(Math.random() * 2) == 0;
     }
@@ -96,6 +102,11 @@ let Application = (() => {
           removeSpotListeners(spot);
         }
       } 
+    }
+
+    function takeTurnX(spot) {
+      takeTurn(spot);
+      compTurn();
     }
 
     function compTurn() {
@@ -227,37 +238,30 @@ let Application = (() => {
       return { linePriority: priority, ePositions };
     }
 
-    return {
-      setPlayer1: (player) => {
-        player1 = player;
-      },
-      setPlayer2: (player) => {
-        player2 = player;
-      },
-      resetScore: () => {
-        player1.wins = 0;
-        player2.wins = 0;
-        updateLeaderboard();
-        removePieces();
-        if (gameOver) {
-          replayBtn.dispatchEvent(new Event('click'));
-        } 
-        else {
-          newMatch(isComp);
-        }
-      },
-      takeTurn: takeTurn,
-      newMatch: newMatch, 
-      checkGameOver: () => {
-        return gameOver; 
-      },
-      vComp: () => {
-        return isComp;
-      },
-      takeTurnX: (spot) => {
-        takeTurn(spot);
-        compTurn();
+    function resetScore() {
+      player1.wins = 0;
+      player2.wins = 0;
+      updateLeaderboard();
+      removePieces();
+      if (gameOver) {
+        replayBtn.dispatchEvent(new Event('click'));
+      } 
+      else {
+        newMatch(isComp);
       }
+    }
+
+    function vComp() {
+      return isComp;
+    }
+
+    return {
+      checkGameOver,
+      newMatch, 
+      resetScore,
+      takeTurn,
+      takeTurnX,
+      vComp
     }
   } 
 
@@ -337,7 +341,6 @@ let Application = (() => {
     let p2Input = document.querySelector('#p2');
     
     // Initiate game
-    game = gameFactory();
     p1 = player(p1Input.value || 'Player 1');
     let isVsComp;
     if (document.querySelector('.person-option').style.display == 'none') {
@@ -348,8 +351,7 @@ let Application = (() => {
       p2 = player(p2Input.value || 'Player 2');
       isVsComp = false;
     }    
-    game.setPlayer1(p1);
-    game.setPlayer2(p2);
+    game = gameFactory(p1, p2);
     game.newMatch(isVsComp);
     updateLeaderboard();
 
@@ -496,7 +498,7 @@ let Application = (() => {
       spot = positionToSpot(spot.parentElement.getAttribute('data-index'));
     }
     removeSpotListeners(spot);
-    if(game.vComp) {
+    if(game.vComp()) {
       game.takeTurnX(spot.getAttribute('data-index'));
     }
     else {
@@ -561,4 +563,4 @@ let Application = (() => {
     return spot;
   }
 
-})();
+// })();
